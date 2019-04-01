@@ -35,7 +35,7 @@ const getContent = async (item) => {
         decodeEntities: false
       });
 
-      const serverAssetPath = `src="154.8.169.156/images/`;
+      const serverAssetPath = `src="http://154.8.169.156/images/`;
       const srcReg = /src=[\'\"]?([^\'\"]*)\//g;
 
       let html = $('.cnbeta-article-body .article-summary').html() + $('.cnbeta-article-body .article-content').html();
