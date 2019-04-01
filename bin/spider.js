@@ -4,7 +4,7 @@ const getWithoutContList = require('./content');
 require('../mysql/index');
 
 const start = async () => {
-  getArticleList();
+  await getArticleList();
   getWithoutContList();
 };
 
