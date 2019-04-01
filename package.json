@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "spider": "nodemon ./bin/spider.js",
-    "start": "nodemon ./bin/app.js"
+    "spider": "pm2 start ./bin/spider.js --name='cn-spider'",
+    "start": "pm2 start ./bin/app.js --name='cn-service'"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
