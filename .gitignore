@@ -12,4 +12,4 @@ yarn-error.log
 yarn.lock
 
 #images
-/public/images/
+/public/images
