@@ -39,9 +39,12 @@ const saveImages = (list) => {
   // 遍历已存在文件
   fs.readdir(savePath, (err, files) => {
 
-    if (files && files.length) {
+    if (!err) {
 
       let needSaveList = [];
+      if (!files || !files.length) {
+        files = [];
+      }
 
       list.forEach(({ thumb }) => {
 
