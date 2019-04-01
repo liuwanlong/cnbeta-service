@@ -1,0 +1,26 @@
+{
+  "name": "cnbeta-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "spider": "nodemon ./bin/spider.js",
+    "start": "nodemon ./bin/app.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.0",
+    "http-errors": "~1.6.2",
+    "https": "^1.0.0",
+    "jade": "~1.11.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "morgan": "~1.9.0",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10",
+    "request": "^2.88.0"
+  }
+}
