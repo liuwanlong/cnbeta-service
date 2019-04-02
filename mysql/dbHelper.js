@@ -30,7 +30,7 @@ const saveContent = (params) => {
 //select
 
 const getArticles = (callback) => {
-  const sql = 'SELECT * FROM articles WHERE content is not NULL';
+  const sql = 'SELECT sid, aid, title, inputtime, thumb, label FROM articles WHERE content is not NULL ORDER BY sid DESC LIMIT 15';
   db.query(sql, [], (rows) => {
     callback(parseSQLRows(rows))
   })
