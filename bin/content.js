@@ -43,7 +43,9 @@ const getContent = async (item) => {
       let content = html
         .replace(styleReg.reg, styleReg.replace)
         .replace(scriptReg.reg, scriptReg.replace)
-        .replace(srcReg, serverAssetPath);
+        .replace(srcReg, serverAssetPath)
+        .replace(/[\r\n]/g, "")
+        .replace(/(^\s*)|(\s*$)/g, "");
 
       //保存content
       saveContent([content, item.sid]);
