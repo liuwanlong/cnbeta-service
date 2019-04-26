@@ -1,4 +1,4 @@
-import { deleteTwoWeeksAgo } from "../mysql/dbHelper";
+const { deleteTwoWeeksAgo } = require("../mysql/dbHelper");
 
 const fs = require('fs');
 const moment = require('moment');
