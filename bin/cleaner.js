@@ -1,8 +1,14 @@
+import { deleteTwoWeeksAgo } from "../mysql/dbHelper";
+
 const fs = require('fs');
 const moment = require('moment');
 
 const cleaner = function () {
 
+  // 删除14天和之前的新闻
+  deleteTwoWeeksAgo();
+
+  // 删除14天之前的图片
   const savePath = './public/images/';
 
   // 读取所有图片

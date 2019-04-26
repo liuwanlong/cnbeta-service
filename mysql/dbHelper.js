@@ -41,6 +41,13 @@ const getArticle = (params, callback) => {
   db.query(sql, params, (rows) => {
     callback(parseSQLRows(rows[0]))
   })
+};
+
+// delete
+const deleteTwoWeeksAgo = () => {
+  const sql = `DELETE FROM articles where DATE_SUB(CURDATE(), INTERVAL 14 DAY) >= date(inputtime)`;
+  db.query(sql, [], () => {
+  })
 }
 
 
@@ -52,5 +59,7 @@ module.exports = {
   saveContent,
 
   getArticles,
-  getArticle
+  getArticle,
+
+  deleteTwoWeeksAgo
 }
