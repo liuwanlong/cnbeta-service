@@ -15,14 +15,14 @@ const cleaner = function () {
         let filePath = savePath + file;
 
         fs.stat(filePath, (err, stats) => {
-          // 如果存取时间超过7天删除
+          // 如果存取时间超过14天删除
 
           if (!err) {
             let currentDate = moment();
             let birthDate = moment(stats.mtime);
             // 与当前时间间隔天数
             let diff = currentDate.diff(birthDate, 'days');
-            if (diff >= 7) {
+            if (diff >= 14) {
               fs.unlink(filePath, err => {
                 if (!err) {
                   console.log(filePath, '删除成功！');
