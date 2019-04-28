@@ -8,8 +8,7 @@ const start = async () => {
   getWithoutContList();
 };
 
-// let spiderTimmer = setInterval(start, 1000 * 60 * 5);
-let spiderTimmer = setInterval(start, 1000 * 5);
+let spiderTimmer = setInterval(start, 1000 * 60 * 5);
 
 let cleanerTimmer = setInterval(() => {
   cleaner();
