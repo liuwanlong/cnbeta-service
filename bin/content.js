@@ -35,8 +35,8 @@ const getContent = async (item) => {
         decodeEntities: false
       });
 
-      const serverAssetPath = `src="http://api.battleangel.online/images/`;
-      const srcReg = /src=[\'\"]?([^\'\"]*)\//g;
+      const serverAssetPath = `<img src="http://api.battleangel.online/images/`;
+      const srcReg = /<img [^>]*src=[\'\"]?([^\'\"]*)\//g;
 
       let html = $('.cnbeta-article-body .article-summary').html() + $('.cnbeta-article-body .article-content').html();
       // 过滤style、script，替换src
