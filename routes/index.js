@@ -1,21 +1,28 @@
-const { getArticles, getArticle } = require('../mysql/dbHelper');
+const { getArticles, getArticle, getArticlesCount } = require('../mysql/dbHelper');
 const express = require('express');
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.send({status: 'success'})
+  res.send({ status: 'success' })
   // res.render('index', { title: 'Express' });
 });
 
 
 router.get('/articles', function (req, res, next) {
-  getArticles((list) => {
-    res.send({
-      status: 'success',
-      list
-    })
-  });
+  let { page = 1, pageSize = 15 } = req.query;
+  getArticlesCount((total) => {
+    getArticles(page, pageSize, (list) => {
+      res.send({
+        status: 'success',
+        total,
+        page,
+        pageSize,
+        list,
+      })
+    });
+  })
+
 });
 
 router.get('/articles/:id', function (req, res, next) {
