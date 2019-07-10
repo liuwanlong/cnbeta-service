@@ -4,7 +4,7 @@ const parseSQLRows = require('../utils/parseSQLRows');
 //save
 
 const saveArticles = (params) => {
-    const insertSql = 'INSERT INTO articles(sid,aid,title,inputtime,thumb,label,url_show) VALUES ? on duplicate key update pk = pk';
+    const insertSql = 'INSERT INTO articles(sid,aid,title,inputtime,thumb,label,url_show) VALUES ? on duplicate key update title = title';
     db.query(insertSql, [params], (rows) => {
         console.log(rows);
     })
