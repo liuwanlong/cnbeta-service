@@ -35,7 +35,7 @@ const getContent = async (item) => {
         decodeEntities: false
       });
 
-      const serverAssetPath = `<img src="//api.battleangel.online/images/`;
+      const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
       const srcReg = /<img [^>]*src=[\'\"]?([^\'\"]*)\//g;
 
       let html = $('.cnbeta-article-body .article-summary').html() + $('.cnbeta-article-body .article-content').html();
