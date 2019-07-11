@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.get('/articles', function (req, res, next) {
+router.get('/api/articles', function (req, res, next) {
   let { page = 1, pageSize = 15 } = req.query;
   getArticlesCount((total) => {
     getArticles(page, pageSize, (list) => {
@@ -25,7 +25,7 @@ router.get('/articles', function (req, res, next) {
 
 });
 
-router.get('/articles/:id', function (req, res, next) {
+router.get('/api/articles/:id', function (req, res, next) {
   let id = req.params.id;
   getArticle(id, (row) => {
     res.send({
