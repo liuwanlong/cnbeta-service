@@ -23,6 +23,7 @@ const getArticleList = async () => {
           //本地路径
           `/images/${getFileNameByURL(item.thumb)}`,
           item.label,
+          item.source,
           !_.startsWith(item.url_show, 'http:') ? 'http:' + item.url_show : item.url_show
         ])
       });

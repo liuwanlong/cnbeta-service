@@ -38,9 +38,15 @@ const getContent = async (item) => {
       const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
       const srcReg = /<img [^>]*src=[\'\"]?([^\'\"]*)\//g;
 
-      let html = $('.cnbeta-article-body .article-summary').html() + $('.cnbeta-article-body .article-content').html();
+      $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
+      $('.cnbeta-article-body .article-summary .topic a').removeAttr('target');
+      let html = $('.cnbeta-article-body');
+      html.remove('.tac');
+      html.remove('.article-share-code');
+      html.remove('.article-global');
+      html.remove('.article-share-code');
       // 过滤style、script，替换src
-      let content = html
+      let content = html.html()
         .replace(styleReg.reg, styleReg.replace)
         .replace(scriptReg.reg, scriptReg.replace)
         .replace(srcReg, serverAssetPath)
