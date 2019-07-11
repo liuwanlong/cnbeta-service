@@ -40,13 +40,9 @@ const getContent = async (item) => {
 
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('target');
-      let html = $('.cnbeta-article-body');
-      html.remove('.tac');
-      html.remove('.article-share-code');
-      html.remove('.article-global');
-      html.remove('.article-share-code');
+      let html =`<div class="article-summary">${$('.cnbeta-article-body .article-summary').html()}</div><div class="article-content">${$('.cnbeta-article-body .article-content').html()}</div>`;
       // 过滤style、script，替换src
-      let content = html.html()
+      let content = html
         .replace(styleReg.reg, styleReg.replace)
         .replace(scriptReg.reg, scriptReg.replace)
         .replace(srcReg, serverAssetPath)
