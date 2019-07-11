@@ -38,7 +38,7 @@ const getArticlesCount = (callback) => {
 
 const getArticles = (page, pageSize, callback) => {
   let start = (page - 1) * pageSize;
-  const sql = 'SELECT pk,sid, aid, title, inputtime, thumb, label FROM articles WHERE content is not NULL ORDER BY pk DESC LIMIT ?,?';
+  const sql = 'SELECT pk, sid, aid, title, inputtime, thumb, label FROM articles WHERE content is not NULL ORDER BY pk DESC LIMIT ?,?';
   db.query(sql, [start, pageSize], (rows) => {
     callback(parseSQLRows(rows))
   })

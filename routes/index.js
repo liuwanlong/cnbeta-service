@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 router.get('/api/articles', function (req, res, next) {
   let { page = 1, pageSize = 15 } = req.query;
   getArticlesCount((total) => {
-    getArticles(page, pageSize, (list) => {
+    getArticles(page, Number(pageSize), (list) => {
       res.send({
         status: 'success',
         total,
