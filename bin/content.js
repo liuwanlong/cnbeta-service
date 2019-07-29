@@ -34,10 +34,10 @@ const getContent = async (item) => {
       const $ = cheerio.load(body, {
         decodeEntities: false
       });
-      const serverAssetPath = process.env.NODE_ENV === 'production' ?
-        `<img src="https://api.battleangel.online/images/` :
-        `<img src="http://localhost:3001/images/`;
-      // const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
+      // const serverAssetPath = process.env.NODE_ENV === 'production' ?
+      //   `<img src="https://api.battleangel.online/images/` :
+      //   `<img src="http://localhost:3001/images/`;
+      const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
       const srcReg = /<img [^>]*src=[\'\"]?([^\'\"]*)\//g;
 
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
