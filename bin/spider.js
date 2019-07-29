@@ -4,13 +4,13 @@ const getWithoutContList = require('./content');
 require('../mysql/index');
 
 const start = async () => {
-    await getArticleList();
-    getWithoutContList();
+  await getArticleList();
+  getWithoutContList();
 };
 
 let spiderTimmer = setInterval(start, 1000 * 60 * 3);
 // let spiderTimmer = setInterval(start, 1000 * 5);
 
 let cleanerTimmer = setInterval(() => {
-    cleaner();
+  cleaner();
 }, 1000 * 60 * 60 * 24);

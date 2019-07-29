@@ -40,7 +40,7 @@ const getContent = async (item) => {
 
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('target');
-      let html =`<div class="article-summary">${$('.cnbeta-article-body .article-summary').html()}</div><div class="article-content">${$('.cnbeta-article-body .article-content').html()}</div>`;
+      let html = `<div class="article-summary">${$('.cnbeta-article-body .article-summary').html()}</div><div class="article-content">${$('.cnbeta-article-body .article-content').html()}</div>`;
       // 过滤style、script，替换src
       let content = html
         .replace(styleReg.reg, styleReg.replace)
@@ -115,6 +115,8 @@ const saveImages = (list) => {
               fs.writeFile(savePath + name, imgData, 'binary', err => {
                 if (err) {
                   console.log('save-image-error', err);
+                } else {
+                  // console.log(savePath + name);
                 }
               })
             });
