@@ -34,8 +34,10 @@ const getContent = async (item) => {
       const $ = cheerio.load(body, {
         decodeEntities: false
       });
-
-      const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
+      const serverAssetPath = process.env.NODE_ENV === 'production' ?
+        `<img src="https://api.battleangel.online/images/` :
+        `<img src="http://localhost:3001/images/`;
+      // const serverAssetPath = `<img src="https://api.battleangel.online/images/`;
       const srcReg = /<img [^>]*src=[\'\"]?([^\'\"]*)\//g;
 
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
@@ -100,9 +102,17 @@ const saveImages = (list) => {
 
         needSaveList.forEach(thumb => {
           // download方式
-          let protocol = (_.startsWith(thumb, 'https:') ? https : http);
+
+          let protocol = '';
+          if (_.startsWith(thumb, '//')) {
+            protocol = https;
+            thumb = 'https:' + thumb;
+          } else {
+            protocol = (_.startsWith(thumb, 'https:') ? https : http);
+          }
 
           let name = getFileNameByURL(thumb);
+          console.log(thumb);
           // download
           protocol.get(thumb, (res) => {
             let imgData = '';
