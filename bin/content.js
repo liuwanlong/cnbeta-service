@@ -41,7 +41,14 @@ const getContent = async (item) => {
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('href');
       $('.cnbeta-article-body .article-summary .topic a').removeAttr('target');
       let html = `<div class="article-summary">${$('.cnbeta-article-body .article-summary').html()}</div><div class="article-content">${$('.cnbeta-article-body .article-content').html()}</div>`;
-      // 过滤style、script，替换src
+      // 保存源图片路径
+      let imgList = [];
+      // 获取content中所有图片src
+      $('.cnbeta-article-body .article-summary img,.cnbeta-article-body .article-content img').each((index, dom) => {
+        let src = dom.attribs.src;
+        imgList.push(src);
+      });
+      // 过滤style、script，替换图片src
       let content = html
         .replace(styleReg.reg, styleReg.replace)
         .replace(scriptReg.reg, scriptReg.replace)
@@ -51,13 +58,6 @@ const getContent = async (item) => {
 
       //保存content
       saveContent([content, item.sid]);
-
-      let imgList = [];
-      // 获取content中所有图片src
-      $('.cnbeta-article-body .article-summary img,.cnbeta-article-body .article-content img').each((index, dom) => {
-        let src = dom.attribs.src;
-        imgList.push(src);
-      });
 
       // 保存图片
       if (imgList && imgList.length) {
