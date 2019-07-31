@@ -8,15 +8,8 @@ var cors = require('cors');
 var indexRouter = require('../routes/index');
 var usersRouter = require('../routes/users');
 
-var whitelist = ['https://news.battleangel.online/', 'http://localhost:8080'];
 var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.findIndex(site => site === origin) > -1) {
-      callback(null, true);
-    } else {
-      callback(new Error(''))
-    }
-  },
+  origin: ['https://news.battleangel.online/', 'http://localhost:8080'],
   optionsSuccessStatus: 200
 };
 var app = express();
