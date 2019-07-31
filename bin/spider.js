@@ -11,9 +11,8 @@ const spiderContent = async () => {
   await getWithoutContList();
 };
 
-let spiderListTimmer = setInterval(spiderList, 1000 * 60 * 3);
 let spiderContentTimmer = setInterval(spiderContent, 1000 * 60);
-// let spiderTimmer = setInterval(start, 1000 * 5);
+let spiderListTimmer = setInterval(spiderList, 1000 * 60 * 3);
 
 let cleanerTimmer = setInterval(() => {
   cleaner();
