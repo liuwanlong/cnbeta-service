@@ -10,6 +10,7 @@ var usersRouter = require('../routes/users');
 
 var corsOptions = {
   origin: ['https://news.battleangel.online', 'http://localhost:8080'],
+  credentials: true,
   optionsSuccessStatus: 200
 };
 var app = express();
